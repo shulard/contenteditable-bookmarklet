@@ -2,41 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Edit my Body</title>
 
   <meta name="description" content="A simple bookmarklet to allow body to be fully editable">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" media="all">
-  <!--[if lt IE 9]><script src="//html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js" media="all"></script><![endif]-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-  <header role="banner">
-    <h1>ContentEditable bookmarklet</h1>
-  </header>
-  <div class="wrap">
-    <main role="main">
-      <button id="bookmarkme" type="button" href="#">Add too BookMarks</button>
-      <pre>javascript:(function() {if(document.querySelector !== undefined && document.querySelector instanceof Function) {var body = document.querySelector('body'); body.setAttribute('contenteditable', 'true'); }})();</pre>
-    </main>
+  <div class="container">
+    <div class="starter-template">
+      <h1>ContentEditable bookmarklet</h1>
+      <p class="lead">Drag the button to your bookmark bar!</p>
+      <a href="javascript:(function() {if(document.querySelector !== undefined && document.querySelector instanceof Function) {var body = document.querySelector('body'); body.setAttribute('contenteditable', 'true'); }})();" title="Edit my Body" class="btn btn-primary btn-lg">Edit my Body</a>
+    </div>
   </div>
-  <footer role="contentinfo">
-    <small>Copyright &copy; <time datetime="2014">2014</time></small>
-  </footer>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $("#bookmarkme").click(function() {
-        if (window.sidebar) { // Mozilla Firefox Bookmark
-          window.sidebar.addPanel($('pre').html(),"");
-        } else if(window.external && window.external.AddFavorite) { // IE Favorite
-          window.external.AddFavorite($('pre').html(),document.title); 
-        } else { 
-          alert("Sorry! Your browser doesn't appear to support this function."); 
-        }
-      });
-    });
-  </script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
