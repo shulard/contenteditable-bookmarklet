@@ -30,10 +30,8 @@
       $("#bookmarkme").click(function() {
         if (window.sidebar) { // Mozilla Firefox Bookmark
           window.sidebar.addPanel($('pre').html(),"");
-        } else if(window.external) { // IE Favorite
+        } else if(window.external && window.external.AddFavorite) { // IE Favorite
           window.external.AddFavorite($('pre').html(),document.title); 
-        } else if (window.opera && window.print) { 
-          window.external.AddFavorite($('pre').html(), document.title);
         } else { 
           alert("Sorry! Your browser doesn't appear to support this function."); 
         }
