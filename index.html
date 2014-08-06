@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Edit my Body</title>
+
+	<meta name="description" content="A simple bookmarklet to allow body to be fully editable">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" media="all">
+	<!--[if lt IE 9]><script src="//html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js" media="all"></script><![endif]-->
+</head>
+<body>
+	<header role="banner">
+		<h1>ContentEditable bookmarklet</h1>
+	</header>
+	<div class="wrap">
+    <main role="main">
+      <button type="button" href="#">Add too BookMarks</button>
+      <pre>javascript:(function() {if(document.querySelector !== undefined && document.querySelector instanceof Function) {var body = document.querySelector('body'); body.setAttribute('contenteditable', 'true'); }})();</pre>
+		</main>
+	</div>
+	<footer role="contentinfo">
+		<small>Copyright &copy; <time datetime="2014">2014</time></small>
+	</footer>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function() {
+      $("#bookmarkme").click(function() {
+        if (window.sidebar) { // Mozilla Firefox Bookmark
+          window.sidebar.addPanel($('pre').html(),"");
+        } else if(window.external) { // IE Favorite
+          window.external.AddFavorite($('pre').html(),document.title); 
+        } else if (window.opera && window.print) { 
+          window.external.AddFavorite($('pre').html(), document.title);
+        } else { 
+          alert("Sorry! Your browser doesn't appear to support this function."); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
